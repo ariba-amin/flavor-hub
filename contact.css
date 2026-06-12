@@ -1,0 +1,144 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================================================
+   CONTACT SECTION (DESKTOP)
+   ========================================================= */
+
+.contact-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(180deg, #f9fafb, #ffffff);
+    padding:60px 8%;
+}
+
+.contact-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* FORM WRAPPER */
+.contact-form{
+    width:100%;
+    max-width:550px;
+    background:white;
+    padding:50px;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.contact-form h1{
+    font-size:36px;
+    margin-bottom:10px;
+    text-align:center;
+    color:#111;
+}
+
+.contact-form p{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+/* INPUTS */
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #e5e5e5;
+    border-radius:10px;
+    outline:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#111;
+    box-shadow:0 0 0 3px rgba(0,0,0,0.05);
+}
+
+/* BUTTON */
+.contact-form button{
+    width:100%;
+    padding:14px;
+    background:#111;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    background:#333;
+    transform:translateY(-2px);
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN (CONTACT SECTION ONLY)
+   ========================================================= */
+
+/* Tablets */
+@media(max-width:992px){
+    .contact-section{
+        padding:40px 4%;
+    }
+}
+
+/* Mobile Devices */
+@media(max-width:768px){
+    .contact-form{
+        padding:35px 25px;
+        border-radius:14px;
+    }
+    
+    .contact-form h1{
+        font-size:28px;
+    }
+}
+
+/* Small Phones */
+@media(max-width:480px){
+    .contact-section{
+        padding:20px 15px;
+    }
+
+    .contact-form{
+        padding:25px 15px;
+    }
+    
+    .contact-form h1{
+        font-size:24px;
+    }
+
+    .contact-form p{
+        font-size:13px;
+        margin-bottom:20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button{
+        padding:12px;
+        font-size:13px;
+    }
+}

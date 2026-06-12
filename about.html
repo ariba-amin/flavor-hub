@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="hf.css">
+    <link rel="stylesheet" href="about.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo-section">
+            <img src="images/logo.png" alt="Logo">
+            <h2>Flavor Hub</h2>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-right">
+
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+
+            <button class="order-btn" onclick="window.location.href='order.html'">
+                Order Now
+            </button>
+
+            <div class="menu-icon" id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+
+        </div>
+    </header>
+
+
+
+
+<section class="about-hero">
+
+    <div class="about-text">
+        <h1>About Flavor Hub</h1>
+        <p>
+            We are a modern food delivery platform dedicated to bringing
+            fresh, delicious, and high-quality meals straight to your door.
+            Our mission is simple — great food, fast delivery, and happy customers.
+        </p>
+        <button class="btn">Explore Menu</button>
+    </div>
+
+    <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=80" alt="Restaurant">
+    </div>
+
+</section>
+
+<section class="story">
+
+    <h2>Our Story</h2>
+    <p>
+        Flavor Hub started with a simple idea — to make restaurant-quality food
+        accessible to everyone at home. From burgers to pizzas, every dish is
+        prepared with fresh ingredients and crafted by expert chefs.
+    </p>
+
+</section>
+
+<section class="values">
+
+    <div class="value-card">
+        <h3>🍔 Quality Food</h3>
+        <p>We use only fresh and premium ingredients.</p>
+    </div>
+
+    <div class="value-card">
+        <h3>🚀 Fast Delivery</h3>
+        <p>Hot food delivered quickly to your doorstep.</p>
+    </div>
+
+    <div class="value-card">
+        <h3>👨‍🍳 Expert Chefs</h3>
+        <p>Professionally trained chefs prepare every meal.</p>
+    </div>
+
+</section>
+
+     <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <h3>Flavor Hub</h3>
+                <p>
+                    Best food in town.
+                    Fresh and delicious meals every day.
+                </p>
+            </div>
+
+           <div>
+    <h3>Quick Links</h3>
+
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+
+</div>
+
+            <div class="contact">
+                <h3>Contact</h3>
+                <p>Multan, Pakistan</p>
+                <p>+92 326 7493155</p>
+                <p>info@flavorhub.com</p>
+            </div>
+
+            <div class="contact">
+                <h3>Opening Hours</h3>
+                <p>Mon-Fri: 9 AM - 10 PM</p>
+                <p>Sat-Sun: 10 AM - 11 PM</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="copyright">
+            © 2026 Flavor Hub. All Rights Reserved.
+        </p>
+
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menu-icon");
+    const navMenu = document.getElementById("nav-menu");
+
+    if (menuIcon && navMenu) {
+        menuIcon.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    }
+
+    // Page load hote hi cart count update karein
+    updateCartCount();
+});
+
+    </script>
+    <script src="menu.js"></script>
+</body>
+</html>

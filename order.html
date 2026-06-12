@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout - Flavor Hub</title>
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-section">
+            <img src="images/logo.png" alt="Logo">
+            <h2>Flavor Hub</h2>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-right">
+
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+
+            <button class="order-btn" onclick="window.location.href='order.html'">
+                Order Now
+            </button>
+
+            <div class="menu-icon" id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+
+        </div>
+    </header>
+    <main class="checkout-container">
+        
+        <section class="checkout-form-section">
+            <h2>Delivery Details</h2>
+            <p class="subtitle">Complete your information to place the order.</p>
+
+            <form id="checkoutForm">
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="custName" placeholder="John Doe" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="custPhone" placeholder="+92 300 1234567" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Delivery Address</label>
+                    <input type="text" id="custAddress" placeholder="House #, Street, Area, City" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-credit-card"></i> Payment Method</label>
+                    <select id="custPayment" required>
+                        <option value="COD">Cash on Delivery (COD)</option>
+                        <option value="Card">Credit / Debit Card</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-pen"></i> Notes for Chef (Optional)</label>
+                    <textarea id="orderNotes" rows="3" placeholder="Any allergies or delivery instructions..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-order-btn">
+                    <span>Confirm & Place Order</span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </form>
+        </section>
+
+        <section class="summary-section">
+            <h3>Your Order Summary</h3>
+            
+            <div id="summaryItemsContainer" class="summary-items">
+                </div>
+
+            <div class="bill-details">
+                <div class="bill-row">
+                    <span>Subtotal</span>
+                    <span id="subtotalPrice">$0.00</span>
+                </div>
+                <div class="bill-row">
+                    <span>Delivery Fee</span>
+                    <span class="free-delivery">FREE</span>
+                </div>
+                <hr class="divider">
+                <div class="bill-row total-row">
+                    <span>Grand Total</span>
+                    <span id="grandTotalPrice">$0.00</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+      <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <h3>Flavor Hub</h3>
+                <p>
+                    Best food in town.
+                    Fresh and delicious meals every day.
+                </p>
+            </div>
+
+           <div>
+    <h3>Quick Links</h3>
+
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+
+</div>
+
+            <div class="contact">
+                <h3>Contact</h3>
+                <p>Multan, Pakistan</p>
+                <p>+92 326 7493155</p>
+                <p>info@flavorhub.com</p>
+            </div>
+
+            <div class="contact">
+                <h3>Opening Hours</h3>
+                <p>Mon-Fri: 9 AM - 10 PM</p>
+                <p>Sat-Sun: 10 AM - 11 PM</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="copyright">
+            © 2026 Flavor Hub. All Rights Reserved.
+        </p>
+
+    </footer>
+    <script src="script.js"></script>
+
+    <script>
+        // 1. Hamesha latest cart data LocalStorage se load karein
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // 2. HTML Elements ko grab karein
+        const itemsContainer = document.getElementById("summaryItemsContainer");
+        const subtotalEl = document.getElementById("subtotalPrice");
+        const totalEl = document.getElementById("grandTotalPrice");
+
+        // 3. Price se '$' ya koi text saaf karne ka function
+        function getPriceNumber(price) {
+            if (!price) return 0;
+            return Number(price.toString().replace(/[^0-9.]/g, "")) || 0;
+        }
+
+        // 4. Order Summary ko screen par render karne ka function
+        function renderSummary() {
+            // Latest data sync karein
+            cart = JSON.parse(localStorage.getItem("cart")) || []; 
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `
+                    <div class="empty-cart-msg" style="text-align: center; padding: 20px;">
+                        <i class="fas fa-shopping-basket" style="font-size: 40px; color: #ccc;"></i>
+                        <p style="margin-top: 10px;">Your cart is empty.</p>
+                        <a href="menu.html" style="color: #ff4757; text-decoration: none; font-weight: bold;">Go to Menu</a>
+                    </div>`;
+                
+                subtotalEl.innerText = "$0.00";
+                totalEl.innerText = "$0.00";
+                return;
+            }
+
+            itemsContainer.innerHTML = "";
+            let totalBill = 0;
+
+            cart.forEach((item, index) => {
+                const priceNum = getPriceNumber(item.price);
+                totalBill += priceNum;
+
+                itemsContainer.innerHTML += `
+                    <div class="summary-item-card" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #eee;">
+                        <div>
+                            <h4 style="margin: 0 0 5px 0;">${item.name}</h4>
+                            <span class="item-price" style="color: #666;">${item.price}</span>
+                        </div>
+                        <button onclick="removeItem(${index})" class="remove-item-btn" style="background: none; border: none; color: #ff4757; cursor: pointer;">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            subtotalEl.innerText = `$${totalBill.toFixed(2)}`;
+            totalEl.innerText = `$${totalBill.toFixed(2)}`;
+        }
+
+        // 5. Cart se item remove karne ka function
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderSummary();
+            
+            // Header ka cart count bhi update karein
+            if (typeof updateCartCount === "function") {
+                updateCartCount();
+            }
+        }
+
+        // 6. Form Submit (Order Place) hone ka logic
+        document.getElementById("checkoutForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                alert("Please add items first!");
+                return;
+            }
+
+            const name = document.getElementById("custName").value;
+            const address = document.getElementById("custAddress").value;
+
+            alert(`🎉 Thank you, ${name}!\nOrder placed successfully!\n\nAddress: ${address}\nTotal: ${totalEl.innerText}`);
+
+            // LocalStorage aur array dono clear karein
+            cart = [];
+            localStorage.setItem("cart", JSON.stringify([]));
+
+            // Header ka count 0 karein
+            if (typeof updateCartCount === "function") {
+                updateCartCount();
+            }
+
+            // Redirect to home page
+            window.location.href = "index.html";
+        });
+
+        // Page load hote hi summary render karein
+        renderSummary();
+    </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavor Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hf.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-section">
+            <img src="images/logo.png" alt="Logo">
+            <h2>Flavor Hub</h2>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-right">
+
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+
+            <button class="order-btn" onclick="window.location.href='order.html'">
+                Order Now
+            </button>
+
+            <div class="menu-icon" id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Delicious Food Delivered To Your Door
+            </h1>
+
+            <p>
+                Fresh meals prepared daily with the finest ingredients.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="menu-btn" onclick="window.location.href='menu.html'">
+                    View Menu
+                </button>
+
+               <button class="order-btn" onclick="window.location.href='order.html'">
+    Order Now
+</button>
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="images/hero.jpg" alt="Food">
+        </div>
+
+    </section>
+
+
+
+    <section class="why-choose-us">
+
+    <div class="section-title">
+        <h2>Why Choose Flavor Hub?</h2>
+        <p>
+            We serve fresh, delicious meals prepared with premium ingredients
+            and delivered quickly to your doorstep.
+        </p>
+    </div>
+
+    <div class="why-container">
+
+        <div class="why-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png"
+                 alt="Fresh Food">
+
+            <h3>Fresh Ingredients</h3>
+
+            <p>
+                Every dish is prepared using carefully selected vegetables,
+                premium meats, and high-quality spices to ensure exceptional
+                taste and nutrition.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png"
+                 alt="Fast Delivery">
+
+            <h3>Fast Delivery</h3>
+
+            <p>
+                Our delivery team ensures your food reaches you hot and fresh
+                within the shortest possible time.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
+                 alt="Chef">
+
+            <h3>Expert Chefs</h3>
+
+            <p>
+                Experienced chefs craft every meal with passion and creativity,
+                bringing restaurant-quality dining to your home.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+
+    <div class="cta-content">
+
+        <h2>Hungry? Don’t Wait!</h2>
+
+        <p>
+            Get your favorite meals delivered fresh and hot in just a few minutes.
+            Order now and enjoy delicious food at your doorstep.
+        </p>
+
+        <div class="cta-buttons">
+            <button class="order-btn" onclick="window.location.href='order.html'">
+    Order Now
+</button>
+            <button class="cta-btn secondary" onclick="window.location.href='menu.html'">View Menu</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- POPULAR DISHES SECTION -->
+<section class="popular-dishes">
+
+    <div class="section-title">
+        <h2>Popular Dishes</h2>
+        <p>Most loved meals by our customers</p>
+    </div>
+
+    <div class="dishes-grid">
+
+        <!-- Dish 1 -->
+        <div class="dish-card">
+            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e"
+                 alt="Burger">
+
+            <div class="dish-info">
+                <h3>Cheese Burger</h3>
+                <p class="desc">Juicy grilled beef with cheese & fresh veggies</p>
+
+                <div class="bottom">
+                    <span class="price">$8.99</span>
+                    <span class="rating">⭐ 4.5</span>
+                </div>
+
+               <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Dish 2 -->
+        <div class="dish-card">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
+                 alt="Pizza">
+
+            <div class="dish-info">
+                <h3>Italian Pizza</h3>
+                <p class="desc">Cheesy pizza with fresh toppings & sauce</p>
+
+                <div class="bottom">
+                    <span class="price">$10.99</span>
+                    <span class="rating">⭐ 4.7</span>
+                </div>
+
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Dish 3 -->
+        <div class="dish-card">
+            <img src="images/pasta.png"
+                 alt="Pasta">
+
+            <div class="dish-info">
+                <h3>Cream Pasta</h3>
+                <p class="desc">Creamy white sauce pasta with herbs</p>
+
+                <div class="bottom">
+                    <span class="price">$9.50</span>
+                    <span class="rating">⭐ 4.6</span>
+                </div>
+
+                <button class="add-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+                <h3>Flavor Hub</h3>
+                <p>
+                    Best food in town.
+                    Fresh and delicious meals every day.
+                </p>
+            </div>
+
+           <div>
+    <h3>Quick Links</h3>
+
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+
+</div>
+
+            <div class="contact">
+                <h3>Contact</h3>
+                <p>Multan, Pakistan</p>
+                <p>+92 326 7493155</p>
+                <p>info@flavorhub.com</p>
+            </div>
+
+            <div class="contact">
+                <h3>Opening Hours</h3>
+                <p>Mon-Fri: 9 AM - 10 PM</p>
+                <p>Sat-Sun: 10 AM - 11 PM</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="copyright">
+            © 2026 Flavor Hub. All Rights Reserved.
+        </p>
+
+    </footer>
+<script src="script.js"></script>
+    <script src="menu.js"></script>
+    
+
+</body>
+</html>
